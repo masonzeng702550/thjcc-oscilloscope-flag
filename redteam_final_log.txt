@@ -1,0 +1,43 @@
+Red-team validation run -- final wording
+=========================================
+Challenge shown to agent:
+
+  DOUBLE FAULT                    [ audio ]
+  The spectrogram won't help you -- what it throws away is exactly
+  what you're looking for. The two channels have been mixed
+  together, and one of them is late.
+
+Working dir : scratchpad/rt_final
+File        : double_fault.wav (= song_challenge.wav)
+
+STARTED     : 2026-08-12 02:07:54
+  02:09:43  files=82   newest=p29_bot1.png
+  02:13:43  files=84   newest=p30_allsegs_unmixed.png
+
+=========================================
+RESULT      : SOLVED
+FLAG        : THJCC{δράκος}
+
+Agent launched   : 2026-08-12 01:31:34
+Agent completed  : 2026-08-12 02:15:59
+ELAPSED          : 44 min 25 s  (2,665,006 ms)
+
+tool calls  : 61
+tokens      : 192,851
+dead ends   : 55-60% (self-assessed)
+XY plotted  : yes, at step 7 -- the breakthrough
+final files : 84
+
+Recovery recipe the agent derived:
+  take one 3000-sample frame from 4.93-10.94s
+  R2 = np.roll(R, -1129)
+  rotate (L, R2) by -43 degrees
+  plot u vs -v
+=========================================
+
+COMPARISON OF ALL WORDINGS TESTED
+---------------------------------
+no description                          88 min    FAILED
+"looked at, not as a waveform" + HINT2  15.9 min  solved   <-- fastest
+"damaged twice" + spectrogram line      stalled   FAILED (109 files, never plotted XY)
+"spectrogram" line + HINT2              44.4 min  solved   <-- this run
