@@ -57,3 +57,27 @@ v1 vs v2, IDENTICAL description:
   v2   17.5 min   45 calls   103,993 tok   40-45% dead ends
   -> v2 is FASTER on every axis. The hardening did not hold.
 =========================================
+
+=========================================
+v3 BLIND TEST (realistic: agent got the shipped zip contents, README carried
+the description -- not injected into its instructions)
+
+launched  : 2026-08-13 20:48:46
+completed : 2026-08-13 20:54:54
+ELAPSED   : 6 min 09 s  (368,753 ms)
+
+result    : SOLVED  THJCC{δράκος}
+tool calls: 22      tokens: 71,650      dead ends: ~40%
+
+"Did the file look BROKEN?" -- asked directly:
+  "Briefly, yes, at step 5 [raw L-vs-R scatter]. What kept me going was that
+   the fragments were clearly GLYPH-SHAPED rather than random, so the damage
+   looked systematic. The spectrograms never looked broken, just featureless."
+  -> the v3 fix worked: it never concluded the file was defective.
+
+FULL SERIES (all with a description):
+  v1   44.4 min   61 calls   192,851 tok
+  v2   17.5 min   45 calls   103,993 tok
+  v3    6.1 min   22 calls    71,650 tok   <-- fastest
+Without a description: 8 attempts, 8 failures.
+=========================================
