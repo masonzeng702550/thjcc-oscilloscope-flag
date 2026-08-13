@@ -1,4 +1,4 @@
-# Double Fault
+# All Night Long
 
 **Category:** Misc
 **Tags:** audio, dsp, signal-processing
