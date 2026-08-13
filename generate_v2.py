@@ -10,12 +10,16 @@ flag) but every giveaway the v1 red teams exploited has been closed:
   period 3000                 period 2971 (prime)   3000 screams "hand-made",
                                                     which killed the modem/FSK
                                                     branch for free
-  88 identical frames         8 frames              6s of broadband noise was
-                                                    impossible to miss on a
-                                                    spectrogram
-  silence gap either side     crossfade             segment boundaries were
-                                                    free; now they must be
-                                                    inferred
+  88 identical frames         60 frames             REVERTED in v3. Shrinking
+                                                    the payload to 0.5s made it
+                                                    read as a buffer underrun:
+                                                    two independent analyses
+                                                    concluded the file was
+                                                    BROKEN rather than hard.
+  silence gap either side     silence gap           REVERTED in v3, same reason.
+                                                    Crossfading removed the last
+                                                    cue that the segment was put
+                                                    there on purpose.
   Mid/Side (a known 45 deg)   arbitrary rotation    "try mid/side" is a stereo
                               + per-axis gains      cliche; an arbitrary affine
                                                     has to be solved for
@@ -45,7 +49,7 @@ FLAG_LINES = ["THJCC{", "δράκος}"]     # 6 + 7 chars -> balanced widths
 
 SR = 44_100
 FRAME_SAMPLES = 2971       # prime: no longer legibly hand-picked
-N_FRAMES = 8               # ~0.54 s of payload instead of 6 s
+N_FRAMES = 60              # ~4.0 s -- unmistakably deliberate, not a glitch
 TRANSIT_SAMPLES = 6
 
 # The mixing affine. v1 used Mid/Side, i.e. rotation by exactly 45 degrees with
