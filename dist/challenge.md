@@ -7,10 +7,13 @@
 ## Description
 
 ```
-Meant to be looked at, not listened to -- and not as a waveform.
-The two channels have been mixed together, and one channel is late.
+奶龍不唱歌——別聽牠,用看的,而且不是看波形。牠左右兩隻爪子的動作被攪在一起了,還有一隻慢了半拍。Flag 內容為希臘文,請複製貼上,不要手動輸入。
+```
 
-The flag is Greek text; copy it rather than retyping.
+English:
+
+```
+The dragon doesn't sing. Look at it, and not as a waveform. Its two claws got tangled together, and one of them is running late. The flag is Greek text, so copy it rather than retyping.
 ```
 
 ## Flag
